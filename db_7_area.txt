@@ -1,0 +1,21 @@
+CREATE DATABASE db;
+USE db;
+
+CREATE TABLE areas (
+    radius DECIMAL(10,2),
+    area DECIMAL(10,2)
+);
+
+DELIMITER //
+CREATE PROCEDURE CircleArea(IN radius FLOAT)
+BEGIN
+    DECLARE pi FLOAT;
+    DECLARE area FLOAT;
+    SET pi = 3.14159;
+    SET area = pi * radius * radius;
+    INSERT INTO areas(radius, area) VALUES (radius, area);
+END //
+DELIMITER ;
+
+CALL CircleArea(5);
+SELECT * FROM areas;

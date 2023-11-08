@@ -1,0 +1,21 @@
+DELIMITER //
+
+-- Create a stored procedure to calculate square and cube
+CREATE PROCEDURE CalculateSquareAndCube(IN input_number INT)
+BEGIN
+  DECLARE square INT;
+  DECLARE three INT;
+
+  -- Calculate square
+  SET square = input_number * input_number;
+
+  -- Calculate cube
+  SET three = input_number * input_number * input_number;
+
+  -- Display the results
+  SELECT CONCAT('Square of ', input_number, ' is ', square) AS square_result;
+  SELECT CONCAT('Cube of ', input_number, ' is ', three) AS cube_result;
+END;
+//
+
+DELIMITER ;
