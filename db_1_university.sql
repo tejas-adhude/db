@@ -1,13 +1,13 @@
-CREATE DATABASE VishwaVidyalaya;
-USE VishwaVidyalaya;
+CREATE DATABASE university;
+USE university;
 
-CREATE TABLE Vibhag (
-    vibhag_id INT PRIMARY KEY,
+CREATE TABLE department (
+    department_id INT PRIMARY KEY,
     name VARCHAR(50),
     location VARCHAR(100)
 );
 
-INSERT INTO Vibhag (vibhag_id, name, location)
+INSERT INTO department (department_id, name, location)
 VALUES 
 (1, 'Computer Vigyan', 'Vigyan Bhavan'),
 (2, 'Ganit', 'Ganit Bhavan'), 
@@ -15,15 +15,15 @@ VALUES
 (4, 'Itihas', 'Kala Bhavan'),
 (5, 'Jeev Vigyan', 'Vigyan Bhavan');
 
-CREATE TABLE Vidyarthi (
-    vidyarthi_id INT PRIMARY KEY,
+CREATE TABLE student (
+    student_id INT PRIMARY KEY,
     name VARCHAR(50),
     age INT,
-    vibhag_id INT,
-    FOREIGN KEY (vibhag_id) REFERENCES Vibhag(vibhag_id)
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES department(department_id)
 );
 
-INSERT INTO Vidyarthi (vidyarthi_id, name, age, vibhag_id)
+INSERT INTO student (student_id, name, age, department_id)
 VALUES 
 (101, 'Rahul Kumar', 20, 1),
 (102, 'Aarti Singh', 22, 2),
